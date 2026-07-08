@@ -21,6 +21,7 @@ import capcut from "../assets/tech/capcut.png";
 
 export const techStack = [
   {
+    title: "Technology Stack",
     items: [
       { name: "HTML", image: html },
       { name: "CSS", image: css },

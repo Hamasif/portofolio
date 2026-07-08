@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
 
 type Props = {
   title: string;
   value: string;
   href: string;
-  icon: React.ElementType;
+  icon: IconType;
 };
 
 const ContactCard = ({

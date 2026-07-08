@@ -14,13 +14,3 @@ declare module '*.jpg' {
   const src: string;
   export default src;
 }
-
-/// <reference types="vite/client" />
-
-declare module "*.glb";
-declare module "*.png";
-
-export default defineConfig({
-  plugins: [react()],
-  assetsInclude: ['**/*.glb']
-})

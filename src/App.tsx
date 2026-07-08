@@ -6,13 +6,11 @@ import About from "./components/sections/About";
 import Portfolio from "./components/sections/Portfolio";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
-import FlickeringBackground from "./components/ui/FlickeringBackground";
 
 function App() {
   return (
     <>
 
-      <FlickeringBackground />
 
       <Navbar />
 

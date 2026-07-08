@@ -268,22 +268,7 @@ flex-wrap
                             );
                         })}
                     </div>
-                    <div className="mt-14 hidden lg:flex justify-center">
-
-                        <div className="flex flex-col items-center text-zinc-500">
-
-                            <span className="text-sm tracking-[4px]">
-                                SCROLL
-                            </span>
-
-                            <span className="mt-2 animate-bounce text-xl">
-                                ↓
-                            </span>
-
-                        </div>
-
-                    </div>
-
+                    
                 </div>
 
 
