@@ -1,0 +1,139 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import TechSection from "../portfolio/TechSection";
+import PortfolioTabs from "../ui/PortfolioTabs";
+import PortfolioCard from "../ui/PortfolioCard";
+
+import { portfolioItems } from "../../data/portfolio";
+
+const Portfolio = () => {
+    const [active, setActive] = useState<
+        "project" | "certificate" | "tech"
+    >("project");
+
+    const filtered =
+        active === "tech"
+            ? []
+            : portfolioItems.filter(
+                (item) =>
+                    item.category === active
+            );
+
+    return (
+        <section
+            id="portfolio"
+            className="relative overflow-hidden py-32"
+        >
+            <div className="absolute inset-0">
+
+                <div
+                    className="
+    absolute
+    left-0
+    top-32
+    h-72
+    w-72
+    rounded-full
+    bg-cyan-500/10
+    blur-[180px]
+    "
+                />
+
+                <div
+                    className="
+    absolute
+    right-0
+    bottom-20
+    h-72
+    w-72
+    rounded-full
+    bg-violet-500/10
+    blur-[180px]
+    "
+                />
+
+            </div>
+            <div className="mx-auto max-w-7xl px-6">
+
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        y: 40,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    viewport={{
+                        once: true,
+                    }}
+                    className="text-center"
+                >
+
+                    <h2 className="text-5xl font-bold text-white">
+                        Portfolio Showcase
+                    </h2>
+
+                    <p className="mt-5 text-zinc-400">
+                        Explore my journey through projects,
+                        certificates and technical expertise.
+                    </p>
+
+                </motion.div>
+
+                <PortfolioTabs
+                    active={active}
+                    setActive={setActive}
+                />
+
+                <AnimatePresence mode="wait">
+
+                    <motion.div
+                        key={active}
+                        initial={{
+                            opacity: 0,
+                            y: 40,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: 0,
+                        }}
+                        exit={{
+                            opacity: 0,
+                        }}
+                        transition={{
+                            duration: .4,
+                        }}
+                        className="
+mt-20
+grid
+gap-8
+sm:grid-cols-2
+xl:grid-cols-3
+"
+                    >
+
+                        {active === "tech" ? (
+                            <div className="col-span-full">
+                                <TechSection />
+                            </div>
+                        ) : (
+                            filtered.map((item) => (
+                                <PortfolioCard
+                                    key={item.id}
+                                    {...item}
+                                />
+                            ))
+                        )}
+
+                    </motion.div>
+
+                </AnimatePresence>
+
+            </div>
+        </section>
+
+    );
+};
+
+export default Portfolio;
