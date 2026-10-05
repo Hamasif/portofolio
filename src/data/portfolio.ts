@@ -1,6 +1,7 @@
 import project1 from "../assets/projects/project1.png";
 import project3 from "../assets/projects/project3.png";
 import project2 from "../assets/projects/project2.png";
+import project4 from "../assets/projects/project4.png";
 import cert1 from "../assets/certificates/cert1.png";
 import cert2 from "../assets/certificates/cert2.png";
 
@@ -67,5 +68,15 @@ export const portfolioItems = [
     tech: [],
     github: "",
     demo: "",
+  },
+  {
+    id: 6,
+    category: "project",
+    title: "ICMA SURE",
+    image: project4,
+    description:
+      "Konferensi Internasional The 8th ICMA-SURE (International Conference on Multidisciplinary Approaches for Sustainable Rural Development) yang diselenggarakan oleh LPPM Universitas Jenderal Soedirman (Unsoed)",
+    tech: ["Laravel", "Tailwind", "Oracle"],
+    link: "https://icma8.lppm.unsoed.ac.id/about-the-8th",
   },
 ];

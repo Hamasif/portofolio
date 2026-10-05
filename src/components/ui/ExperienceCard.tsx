@@ -16,13 +16,18 @@ const ExperienceCard = ({ experience }: Props) => {
     return (
         <div
             className="
+      group/card
       rounded-3xl
       border border-white/10
       bg-white/5
       backdrop-blur-lg
       p-8
-      hover:border-[#00F5C3]/40
       transition-all
+      duration-300
+      hover:-translate-y-1
+      hover:border-[#00F5C3]/40
+      hover:bg-white/[0.08]
+      hover:shadow-[0_20px_60px_rgba(0,245,195,.07)]
       "
         >
             {/* Header */}
@@ -104,7 +109,13 @@ const ExperienceCard = ({ experience }: Props) => {
               px-4
               py-2
               bg-white/10
+              border border-transparent
               text-sm
+              text-zinc-300
+              transition-all
+              duration-300
+              group-hover/card:border-[#00F5C3]/30
+              group-hover/card:text-white
               "
                         >
                             {tech}

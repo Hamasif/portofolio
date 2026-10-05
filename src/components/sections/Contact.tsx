@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { contacts } from "../../data/contact";
 import ContactCard from "../ui/ContactCard";
+import SectionBackground from "../ui/SectionBackground";
 
 const Contact = () => {
   return (
@@ -8,13 +9,9 @@ const Contact = () => {
       id="contact"
       className="relative overflow-hidden py-32"
     >
-      {/* Background Glow */}
+      <SectionBackground />
 
-      <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-[180px]" />
-
-      <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-violet-500/10 blur-[180px]" />
-
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
 
         {/* Heading */}
 

@@ -5,6 +5,7 @@ import PortfolioTabs from "../ui/PortfolioTabs";
 import PortfolioCard from "../ui/PortfolioCard";
 
 import { portfolioItems } from "../../data/portfolio";
+import SectionBackground from "../ui/SectionBackground";
 
 const Portfolio = () => {
     const [active, setActive] = useState<
@@ -24,36 +25,9 @@ const Portfolio = () => {
             id="portfolio"
             className="relative overflow-hidden py-32"
         >
-            <div className="absolute inset-0">
+            <SectionBackground />
 
-                <div
-                    className="
-    absolute
-    left-0
-    top-32
-    h-72
-    w-72
-    rounded-full
-    bg-cyan-500/10
-    blur-[180px]
-    "
-                />
-
-                <div
-                    className="
-    absolute
-    right-0
-    bottom-20
-    h-72
-    w-72
-    rounded-full
-    bg-violet-500/10
-    blur-[180px]
-    "
-                />
-
-            </div>
-            <div className="mx-auto max-w-7xl px-6">
+            <div className="relative z-10 mx-auto max-w-7xl px-6">
 
                 <motion.div
                     initial={{

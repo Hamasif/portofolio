@@ -5,6 +5,7 @@ import iconPattern from "../../assets/images/iconpattern.png";
 import grain from "../../assets/images/grain.webp";
 import aboutImage from "../../assets/images/about1-hamas.jpg";
 import cvFile from "../../assets/cv/cv.pdf";
+import SectionBackground from "../ui/SectionBackground";
 
 const About = () => {
 
@@ -28,14 +29,12 @@ md:py-28
 lg:py-32
 "
         >
-            {/* Background Glow */}
-
-            <div className="absolute left-0 top-40 h-72 w-72 rounded-full bg-cyan-500/10 blur-[160px]" />
-
-            <div className="absolute right-0 bottom-20 h-72 w-72 rounded-full bg-violet-500/10 blur-[160px]" />
+            <SectionBackground />
 
             <div
                 className="
+relative
+z-10
 mx-auto
 max-w-7xl
 px-5

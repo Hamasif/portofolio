@@ -2,13 +2,16 @@ import DataBumi from "../assets/companies/ptdatabumi.png";
 import RuangHalal from "../assets/companies/ptruanghalal.png";
 import HMIF from "../assets/companies/hmif.png";
 import UNSOED from "../assets/companies/unsoed.png";
+import SinarIlmu from "../assets/companies/sinarilmu.png";
+import LAB from "../assets/companies/lab.png";
 
 export const experiences = [
-    {
+
+  {
     logo: DataBumi,
-    position: "Part Time - Full Stack",
+    position: "Full Time - Full Stack Web Developer & Graphic Designer",
     company: "PT Data Bumi",
-    period: "Februari 2026 - Now",
+    period: "Juli 2026 - Now",
     location: "Surabaya, Indonesia",
 
     descriptions: [
@@ -24,6 +27,62 @@ export const experiences = [
       "MySQL",
       "Tailwind CSS",
       "JavaScript"
+    ]
+  },
+  {
+    logo: LAB,
+    position: "Embedded System Programming Lab Assistant",
+    company: "Universitas Jenderal Soedirman",
+    period: "Februari 2026 - Juli 2026",
+    location: "Purwokerto, Indonesia",
+
+    descriptions: [
+      "Served as a Teaching Assistant for the Embedded System Programming course.",
+      "Taught core concepts and practical skills in embedded system programming to undergraduate students.",
+      "Guided students in completing hands-on assignments and embedded system practical projects.",
+      "Assessed student project implementations, code efficiency, and hardware-software integration performance."
+    ],
+
+    technologies: [
+    ]
+  },
+  {
+    logo: DataBumi,
+    position: "Part Time - Full Stack",
+    company: "PT Data Bumi",
+    period: "Februari 2026 - Juni 2026",
+    location: "Surabaya, Indonesia",
+
+    descriptions: [
+      "Developed an ERP Financial Management System to streamline internal financial operations and administrative workflows.",
+      "Built both frontend and backend functionalities using Laravel, React.js, and MySQL, ensuring a responsive and efficient user experience.",
+      "Designed and implemented core modules, including financial data management, business logic, and database integration.",
+      "Collaborated with stakeholders to translate business requirements into scalable, maintainable, and production-ready solutions."
+    ],
+
+    technologies: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Tailwind CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    logo: SinarIlmu,
+    position: "Founder of Sinar Ilmu",
+    company: "Bhineka Ceria",
+    period: "Juni 2025 - Agustus 2025",
+    location: "Purwokerto, Indonesia",
+
+    descriptions: [
+      "Founded and led Sinar Ilmu, a digital learning volunteer initiative tailored for elementary school students in Pliken Village.",
+      "Designed and built a Learning Management System (LMS) as an interactive digital learning platform for elementary students.",
+      "Coordinated a team of volunteers to execute educational and digital literacy programs effectively in Pliken Village.",
+      "Evaluated program outcomes and student engagement to continuously optimize the digital curriculum and learning experience."
+    ],
+
+    technologies: [
     ]
   },
   {
@@ -102,4 +161,5 @@ export const experiences = [
       "Canva"
     ]
   },
+
 ];

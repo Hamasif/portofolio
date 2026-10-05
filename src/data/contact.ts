@@ -29,9 +29,9 @@ export const contacts = [
   },
   {
     title: "Instagram",
-    value: "@izzuddinfathi",
+    value: "@izzuddinfathi_",
     icon: FaInstagram,
-    href: "https://instagram.com/izzuddinfathi",
+    href: "https://instagram.com/izzuddinfathi_",
   },
   {
     title: "GitHub",
