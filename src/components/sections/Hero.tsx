@@ -118,7 +118,7 @@ text-white
                         Hamas
                     </h1>
 
-                    <h1 className="text-7xl xl:text-8xl font-black leading-none text-white">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black leading-none text-white">
                         Izzuddin
                     </h1>
 
@@ -294,10 +294,10 @@ lg:-ml-16
                         className="
 relative
 w-full
-h-380px
-sm:h-450px
-md:h-550px
-lg:h-650px
+h-[380px]
+sm:h-[450px]
+md:h-[550px]
+lg:h-[650px]
 "
                     >
 

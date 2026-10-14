@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden py-20 md:py-32"
     >
       <SectionBackground />
 
@@ -22,7 +22,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="mb-20 text-center"
         >
-          <h2 className="text-5xl font-bold text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Contact <span className="text-[#00F5C3]">Me</span>
           </h2>
 
@@ -45,7 +45,8 @@ const Contact = () => {
             border
             border-zinc-800
             bg-zinc-900/60
-            p-8
+            p-5
+            sm:p-8
             backdrop-blur-xl
             "
           >
@@ -79,7 +80,8 @@ const Contact = () => {
             border
             border-zinc-800
             bg-zinc-900/60
-            p-8
+            p-5
+            sm:p-8
             backdrop-blur-xl
             "
           >

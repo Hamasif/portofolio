@@ -19,7 +19,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden py-28 px-6"
+      className="relative overflow-hidden py-20 md:py-28 px-5 sm:px-6"
     >
       <SectionBackground />
 
@@ -29,7 +29,7 @@ const Experience = () => {
           initial={{ opacity:0, y:20 }}
           whileInView={{ opacity:1, y:0 }}
           viewport={{ once:true }}
-          className="text-5xl font-bold text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center"
         >
           <span className="text-[#00F5C3]">Experience</span>
         </motion.h2>

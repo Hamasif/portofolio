@@ -48,7 +48,7 @@ const Footer = () => {
 
                     <h2 className="text-4xl font-black text-white">
 
-                        Hamas
+                        H
 
                         <span className="text-[#00F5C3]">
                             .

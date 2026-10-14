@@ -25,6 +25,9 @@ const PortfolioTabs = ({
       mt-12
       flex
       w-fit
+      max-w-full
+      flex-wrap
+      justify-center
       rounded-full
       border
       border-zinc-800
@@ -40,8 +43,11 @@ const PortfolioTabs = ({
           relative
           overflow-hidden
           rounded-full
-          px-10
+          px-5
           py-3
+          text-sm
+          sm:px-10
+          sm:text-base
           capitalize
           text-zinc-400
           transition

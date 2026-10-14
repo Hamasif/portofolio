@@ -21,7 +21,8 @@ const ExperienceCard = ({ experience }: Props) => {
       border border-white/10
       bg-white/5
       backdrop-blur-lg
-      p-8
+      p-5
+      sm:p-8
       transition-all
       duration-300
       hover:-translate-y-1

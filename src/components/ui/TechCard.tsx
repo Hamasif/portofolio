@@ -21,7 +21,8 @@ const TechCard = ({ image, name }: Props) => {
       border
       border-zinc-800
       bg-zinc-900/70
-      p-8
+      p-5
+      sm:p-8
       backdrop-blur-xl
       transition-all
       duration-300
@@ -34,8 +35,10 @@ const TechCard = ({ image, name }: Props) => {
         alt={name}
         className="
         mx-auto
-        h-16
-        w-16
+        h-14
+        w-14
+        sm:h-16
+        sm:w-16
         object-contain
         transition
         duration-300

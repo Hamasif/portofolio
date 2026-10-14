@@ -202,11 +202,25 @@ text-zinc-500
 
                                 <div>
 
-                                    <h4 className="text-6xl font-black text-[#00F5C3]">
+                                    <h4 className="
+text-4xl
+md:text-5xl
+lg:text-6xl
+font-black
+text-[#00F5C3]
+">
                                         15+
                                     </h4>
 
-                                    <p className="mt-2 text-sm uppercase tracking-[3px] text-zinc-500">
+                                    <p className="
+mt-2
+text-xs
+md:text-sm
+uppercase
+tracking-[2px]
+md:tracking-[3px]
+text-zinc-500
+">
                                         Project Selesai
                                     </p>
 
@@ -214,11 +228,25 @@ text-zinc-500
 
                                 <div>
 
-                                    <h4 className="text-6xl font-black text-[#00F5C3]">
+                                    <h4 className="
+text-4xl
+md:text-5xl
+lg:text-6xl
+font-black
+text-[#00F5C3]
+">
                                         8+
                                     </h4>
 
-                                    <p className="mt-2 text-sm uppercase tracking-[3px] text-zinc-500">
+                                    <p className="
+mt-2
+text-xs
+md:text-sm
+uppercase
+tracking-[2px]
+md:tracking-[3px]
+text-zinc-500
+">
                                         Sertifikat
                                     </p>
 

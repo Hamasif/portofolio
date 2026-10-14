@@ -1,21 +1,15 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Maximize2 } from "lucide-react";
+import type { PortfolioItem } from "../../data/portfolio";
 
 type Props = {
-  title: string;
-  image: string;
-  description: string;
-  tech: string[];
-  link?: string;
+  item: PortfolioItem;
+  onOpen: (item: PortfolioItem) => void;
 };
 
-const PortfolioCard = ({
-  title,
-  image,
-  description,
-  tech,
-  link,
-}: Props) => {
+const PortfolioCard = ({ item, onOpen }: Props) => {
+  const { title, image, description, tech, link } = item;
+
   return (
     <motion.div
       whileHover={{
@@ -24,8 +18,15 @@ const PortfolioCard = ({
       transition={{
         duration: .35,
       }}
+      onClick={() => onOpen(item)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") onOpen(item);
+      }}
       className="
       group
+      cursor-pointer
       overflow-hidden
       rounded-[30px]
       border
@@ -85,23 +86,58 @@ const PortfolioCard = ({
           "
         >
 
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpen(item);
+            }}
+            aria-label="Lihat detail project"
             className="
-        rounded-full
-        bg-black/70
-        p-4
-        backdrop-blur-lg
-        transition
-        hover:scale-110
-        hover:bg-[#00F5C3]
-        hover:text-black
-    "
+            flex
+            items-center
+            gap-2
+            rounded-full
+            bg-black/70
+            px-6
+            py-3.5
+            text-sm
+            font-semibold
+            text-white
+            backdrop-blur-lg
+            transition
+            hover:scale-105
+            hover:bg-[#00F5C3]
+            hover:text-black
+            "
           >
-            <ExternalLink size={20} />
-          </a>
+            <Maximize2 size={18} />
+            Lihat Detail
+          </button>
+
+          {link && (
+
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              aria-label="Buka project"
+              className="
+              rounded-full
+              bg-black/70
+              p-4
+              backdrop-blur-lg
+              transition
+              hover:scale-110
+              hover:bg-[#00F5C3]
+              hover:text-black
+              "
+            >
+              <ExternalLink size={20} />
+            </a>
+
+          )}
 
         </div>
 
@@ -109,7 +145,7 @@ const PortfolioCard = ({
 
       {/* CONTENT */}
 
-      <div className="p-7">
+      <div className="p-5 sm:p-7">
 
         <div className="flex items-center justify-between">
 
@@ -117,7 +153,7 @@ const PortfolioCard = ({
             {title}
           </h3>
 
-          <ExternalLink
+          <Maximize2
             size={18}
             className="
             text-zinc-500
@@ -138,10 +174,10 @@ const PortfolioCard = ({
 
           <div className="mt-6 flex flex-wrap gap-2">
 
-            {tech.map((item) => (
+            {tech.map((t) => (
 
               <span
-                key={item}
+                key={t}
                 className="
                 rounded-full
                 border
@@ -153,7 +189,7 @@ const PortfolioCard = ({
                 text-[#00F5C3]
                 "
               >
-                {item}
+                {t}
               </span>
 
             ))}
@@ -164,29 +200,62 @@ const PortfolioCard = ({
 
         <div className="mt-8">
 
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-            inline-flex
-            items-center
-            gap-2
-            rounded-full
-            bg-[#00F5C3]
-            px-6
-            py-3
-            font-semibold
-            text-black
-            transition-all
-            duration-300
-            hover:scale-105
-            hover:shadow-[0_0_30px_rgba(0,245,195,.35)]
-        "
-          >
-            Visit Project
-            <ExternalLink size={18} />
-          </a>
+          {link ? (
+
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              bg-[#00F5C3]
+              px-6
+              py-3
+              font-semibold
+              text-black
+              transition-all
+              duration-300
+              hover:scale-105
+              hover:shadow-[0_0_30px_rgba(0,245,195,.35)]
+          "
+            >
+              Visit Project
+              <ExternalLink size={18} />
+            </a>
+
+          ) : (
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpen(item);
+              }}
+              className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              bg-[#00F5C3]
+              px-6
+              py-3
+              font-semibold
+              text-black
+              transition-all
+              duration-300
+              hover:scale-105
+              hover:shadow-[0_0_30px_rgba(0,245,195,.35)]
+              "
+            >
+              Lihat Detail
+              <Maximize2 size={18} />
+            </button>
+
+          )}
 
         </div>
 

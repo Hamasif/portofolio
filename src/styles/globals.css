@@ -11,7 +11,20 @@ body {
   color: white;
   font-family: "Outfit", sans-serif;
   overflow-x: hidden;
-  background-attachment: fixed;
+}
+
+/* background-attachment: fixed berat & janky di HP, aktifkan hanya di desktop */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+/* Izinkan scroll vertikal halaman saat jari di atas canvas 3D (mobile) */
+@media (pointer: coarse) {
+  .lanyard-canvas canvas {
+    touch-action: pan-y !important;
+  }
 }
 
 * {

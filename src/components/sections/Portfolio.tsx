@@ -3,14 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import TechSection from "../portfolio/TechSection";
 import PortfolioTabs from "../ui/PortfolioTabs";
 import PortfolioCard from "../ui/PortfolioCard";
+import ProjectDetailModal from "../ui/ProjectDetailModal";
 
 import { portfolioItems } from "../../data/portfolio";
+import type { PortfolioItem } from "../../data/portfolio";
 import SectionBackground from "../ui/SectionBackground";
 
 const Portfolio = () => {
     const [active, setActive] = useState<
         "project" | "certificate" | "tech"
     >("project");
+    const [selected, setSelected] = useState<PortfolioItem | null>(null);
 
     const filtered =
         active === "tech"
@@ -23,7 +26,7 @@ const Portfolio = () => {
     return (
         <section
             id="portfolio"
-            className="relative overflow-hidden py-32"
+            className="relative overflow-hidden py-20 md:py-32"
         >
             <SectionBackground />
 
@@ -44,7 +47,7 @@ const Portfolio = () => {
                     className="text-center"
                 >
 
-                    <h2 className="text-5xl font-bold text-white">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                         Portfolio Showcase
                     </h2>
 
@@ -95,7 +98,8 @@ xl:grid-cols-3
                             filtered.map((item) => (
                                 <PortfolioCard
                                     key={item.id}
-                                    {...item}
+                                    item={item}
+                                    onOpen={setSelected}
                                 />
                             ))
                         )}
@@ -105,6 +109,11 @@ xl:grid-cols-3
                 </AnimatePresence>
 
             </div>
+
+            <ProjectDetailModal
+                item={selected}
+                onClose={() => setSelected(null)}
+            />
         </section>
 
     );

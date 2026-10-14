@@ -45,7 +45,7 @@ duration-500
                     href="#home"
                     className="text-2xl font-bold tracking-tight text-white"
                 >
-                    Hamas<span className="text-[#00F5C3]">.</span>
+                    H<span className="text-[#00F5C3]">.</span>
                 </a>
 
                 {/* Menu */}
@@ -125,7 +125,7 @@ duration-500
     overflow-hidden
     transition-all
     duration-300
-    ${open ? "max-h-500px" : "max-h-0"}
+    ${open ? "max-h-[500px]" : "max-h-0"}
   `}
             >
                 <div className="border-t border-white/10 bg-black/90 backdrop-blur-xl">
