@@ -33,6 +33,8 @@ const TechCard = ({ image, name }: Props) => {
       <img
         src={image}
         alt={name}
+        loading="lazy"
+        decoding="async"
         className="
         mx-auto
         h-14

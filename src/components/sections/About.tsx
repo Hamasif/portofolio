@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import ProfileCard from "../reactbits/ProfileCard";
-import iconPattern from "../../assets/images/iconpattern.png";
+import iconPattern from "../../assets/images/iconpattern.webp";
 import grain from "../../assets/images/grain.webp";
-import aboutImage from "../../assets/images/about1-hamas.jpg";
+import aboutImage from "../../assets/images/about1-hamas.webp";
 import cvFile from "../../assets/cv/cv.pdf";
 import SectionBackground from "../ui/SectionBackground";
 

@@ -1,9 +1,9 @@
-import DataBumi from "../assets/companies/ptdatabumi.png";
-import RuangHalal from "../assets/companies/ptruanghalal.png";
-import HMIF from "../assets/companies/hmif.png";
-import UNSOED from "../assets/companies/unsoed.png";
-import SinarIlmu from "../assets/companies/sinarilmu.png";
-import LAB from "../assets/companies/lab.png";
+import DataBumi from "../assets/companies/ptdatabumi.webp";
+import RuangHalal from "../assets/companies/ptruanghalal.webp";
+import HMIF from "../assets/companies/hmif.webp";
+import UNSOED from "../assets/companies/unsoed.webp";
+import SinarIlmu from "../assets/companies/sinarilmu.webp";
+import LAB from "../assets/companies/lab.webp";
 
 export const experiences = [
 

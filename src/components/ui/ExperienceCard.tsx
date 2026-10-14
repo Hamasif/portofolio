@@ -50,6 +50,8 @@ const ExperienceCard = ({ experience }: Props) => {
                         <img
                             src={experience.logo}
                             alt={experience.company}
+                            loading="lazy"
+                            decoding="async"
                             className="h-full w-full object-contain"
                         />
                     </div>

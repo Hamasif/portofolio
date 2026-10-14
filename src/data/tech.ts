@@ -1,23 +1,23 @@
-import html from "../assets/tech/html.png";
-import css from "../assets/tech/css.png";
-import javascript from "../assets/tech/javascript.png";
-import typescript from "../assets/tech/typescript.png";
-import react from "../assets/tech/react.png";
-import tailwind from "../assets/tech/tailwind.png";
+import html from "../assets/tech/html.webp";
+import css from "../assets/tech/css.webp";
+import javascript from "../assets/tech/javascript.webp";
+import typescript from "../assets/tech/typescript.webp";
+import react from "../assets/tech/react.webp";
+import tailwind from "../assets/tech/tailwind.webp";
 
-import php from "../assets/tech/php.png";
-import laravel from "../assets/tech/laravel.png";
+import php from "../assets/tech/php.webp";
+import laravel from "../assets/tech/laravel.webp";
 
-import mysql from "../assets/tech/mysql.png";
-import oracle from "../assets/tech/oracle.png";
+import mysql from "../assets/tech/mysql.webp";
+import oracle from "../assets/tech/oracle.webp";
 
-import figma from "../assets/tech/figma.png";
-import canva from "../assets/tech/canva.png";
-import coreldraw from "../assets/tech/coreldraw.png";
+import figma from "../assets/tech/figma.webp";
+import canva from "../assets/tech/canva.webp";
+import coreldraw from "../assets/tech/coreldraw.webp";
 
-import vscode from "../assets/tech/vscode.png";
-import github from "../assets/tech/github.png";
-import capcut from "../assets/tech/capcut.png";
+import vscode from "../assets/tech/vscode.webp";
+import github from "../assets/tech/github.webp";
+import capcut from "../assets/tech/capcut.webp";
 
 export const techStack = [
   {

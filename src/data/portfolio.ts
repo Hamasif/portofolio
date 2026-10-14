@@ -1,12 +1,12 @@
-import project1 from "../assets/projects/project1.png";
-import project3 from "../assets/projects/project3.png";
-import project2 from "../assets/projects/project2.png";
-import project4 from "../assets/projects/project4.png";
-import project11 from "../assets/projects/project11.png";
-import project22 from "../assets/projects/project22.png";
-import project33 from "../assets/projects/project33.png";
-import cert1 from "../assets/certificates/cert1.png";
-import cert2 from "../assets/certificates/cert2.png";
+import project1 from "../assets/projects/project1.webp";
+import project3 from "../assets/projects/project3.webp";
+import project2 from "../assets/projects/project2.webp";
+import project4 from "../assets/projects/project4.webp";
+import project11 from "../assets/projects/project11.webp";
+import project22 from "../assets/projects/project22.webp";
+import project33 from "../assets/projects/project33.webp";
+import cert1 from "../assets/certificates/cert1.webp";
+import cert2 from "../assets/certificates/cert2.webp";
 
 export type PortfolioItem = {
   id: number;

@@ -46,6 +46,8 @@ const PortfolioCard = ({ item, onOpen }: Props) => {
         <img
           src={image}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="
           h-64
           w-full
