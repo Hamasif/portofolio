@@ -1,13 +1,11 @@
-import { Suspense, lazy } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { heroSocials } from "../../data/contact";
+import Lanyard from "../reactbits/Lanyard";
 import AuroraBackground from "../../components/ui/AuroraBackground";
 import { motion } from "framer-motion";
 import fotoDepan from "../../assets/images/foto-hamas1.webp";
 import fotoBelakang from "../../assets/images/foto-hamas2.webp";
-
-const Lanyard = lazy(() => import("../reactbits/Lanyard"));
-const LightRays = lazy(() => import("../reactbits/LightRays"));
+import LightRays from "../reactbits/LightRays";
 
 const Hero = () => {
     return (
@@ -303,34 +301,13 @@ lg:h-[650px]
 "
                     >
 
-                        <Suspense
-                            fallback={
-                                <div className="flex h-full w-full items-center justify-center">
-                                    <img
-                                        src={fotoDepan}
-                                        alt="Kartu profil Hamas"
-                                        className="
-                                        w-52
-                                        sm:w-60
-                                        rotate-6
-                                        rounded-2xl
-                                        border
-                                        border-zinc-800
-                                        object-cover
-                                        shadow-[0_30px_80px_rgba(0,0,0,.6)]
-                                        "
-                                    />
-                                </div>
-                            }
-                        >
-                            <Lanyard
-                                position={[0, 0, 17]}
-                                fov={17}
-                                frontImage={fotoDepan}
-                                backImage={fotoBelakang}
-                                imageFit="cover"
-                            />
-                        </Suspense>
+                        <Lanyard
+                            position={[0, 0, 17]}
+                            fov={17}
+                            frontImage={fotoDepan}
+                            backImage={fotoBelakang}
+                            imageFit="cover"
+                        />
 
                     </div>
 

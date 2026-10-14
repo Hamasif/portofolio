@@ -7,7 +7,6 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Layers,
   Sparkles,
   UserRound,
   X,
@@ -20,11 +19,7 @@ type Props = {
   onClose: () => void;
 };
 
-const MetaContent = ({
-  item,
-}: {
-  item: PortfolioItem;
-}) => {
+const ModalBody = ({ item }: { item: PortfolioItem }) => {
   const gallery =
     item.gallery && item.gallery.length > 0 ? item.gallery : [item.image];
   const [active, setActive] = useState(0);
@@ -42,84 +37,29 @@ const MetaContent = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [gallery.length]);
 
-  const meta = [
-    { icon: UserRound, label: "Role", value: item.role },
-    { icon: Calendar, label: "Tahun", value: item.year },
-    {
-      icon: Layers,
-      label: "Kategori",
-      value: item.category === "project" ? "Proyek" : "Sertifikat",
-    },
+  const metaChips = [
+    { icon: UserRound, value: item.role },
+    { icon: Calendar, value: item.year },
   ].filter((m) => Boolean(m.value));
 
   return (
-    <div>
+    <div className="flex flex-col lg:h-[600px] lg:flex-row">
 
-      {/* HEADER */}
+      {/* LEFT — GALLERY */}
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 16,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: .15,
-          duration: .5,
-        }}
-        className="px-8 pt-8 lg:px-10 lg:pt-9"
-      >
+      <div className="relative flex shrink-0 flex-col bg-black lg:w-[54%]">
 
-        <span
+        <div
           className="
-          inline-flex
-          items-center
-          gap-2
-          rounded-full
-          border
-          border-[#00F5C3]/30
-          bg-[#00F5C3]/10
-          px-4
-          py-1.5
-          text-xs
-          font-semibold
-          uppercase
-          tracking-[0.2em]
-          text-[#00F5C3]
+          relative
+          aspect-video
+          w-full
+          overflow-hidden
+          lg:aspect-auto
+          lg:min-h-0
+          lg:flex-1
           "
         >
-          <Sparkles size={13} />
-          Detail Proyek
-        </span>
-
-        <h3 className="mt-4 text-3xl font-bold text-white lg:text-4xl">
-          {item.title}
-        </h3>
-
-      </motion.div>
-
-      {/* GALLERY */}
-
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 24,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: .22,
-          duration: .55,
-        }}
-        className="mt-7"
-      >
-
-        <div className="relative aspect-video w-full overflow-hidden bg-black">
 
           <AnimatePresence initial={false}>
 
@@ -129,7 +69,7 @@ const MetaContent = ({
               alt={`${item.title} — screenshot ${active + 1}`}
               initial={{
                 opacity: 0,
-                scale: 1.04,
+                scale: 1.03,
               }}
               animate={{
                 opacity: 1,
@@ -139,7 +79,7 @@ const MetaContent = ({
                 opacity: 0,
               }}
               transition={{
-                duration: .45,
+                duration: .4,
                 ease: "easeOut",
               }}
               className="
@@ -159,9 +99,9 @@ const MetaContent = ({
             absolute
             inset-0
             bg-linear-to-t
-            from-black/60
+            from-black/50
             via-transparent
-            to-black/20
+            to-transparent
             "
           />
 
@@ -176,13 +116,13 @@ const MetaContent = ({
                 aria-label="Foto sebelumnya"
                 className="
                 absolute
-                left-4
+                left-3
                 top-1/2
                 z-10
                 -translate-y-1/2
                 rounded-full
                 bg-black/60
-                p-3
+                p-2.5
                 text-white
                 backdrop-blur-md
                 transition
@@ -191,7 +131,7 @@ const MetaContent = ({
                 hover:text-black
                 "
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={18} />
               </button>
 
               <button
@@ -200,13 +140,13 @@ const MetaContent = ({
                 aria-label="Foto berikutnya"
                 className="
                 absolute
-                right-4
+                right-3
                 top-1/2
                 z-10
                 -translate-y-1/2
                 rounded-full
                 bg-black/60
-                p-3
+                p-2.5
                 text-white
                 backdrop-blur-md
                 transition
@@ -215,20 +155,20 @@ const MetaContent = ({
                 hover:text-black
                 "
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={18} />
               </button>
 
               <div
                 className="
                 absolute
-                bottom-4
-                right-4
+                bottom-3
+                right-3
                 z-10
                 rounded-full
                 bg-black/60
-                px-3.5
-                py-1.5
-                text-xs
+                px-3
+                py-1
+                text-[11px]
                 font-semibold
                 text-white
                 backdrop-blur-md
@@ -246,16 +186,12 @@ const MetaContent = ({
 
           <div
             className="
-            flex
-            flex-wrap
-            justify-center
-            gap-3
-            border-t
-            border-zinc-800/70
-            bg-[#0c0c0e]
-            px-6
-            py-4
-            "
+          flex
+          gap-2.5
+          border-t
+          border-zinc-800/70
+          p-3
+          "
           >
             {gallery.map((src, i) => (
               <button
@@ -264,15 +200,16 @@ const MetaContent = ({
                 onClick={() => setActive(i)}
                 aria-label={`Lihat screenshot ${i + 1}`}
                 className={`
-                h-16
-                w-24
+                h-14
+                w-20
+                shrink-0
                 overflow-hidden
-                rounded-xl
+                rounded-lg
                 transition-all
                 duration-300
                 ${
                   i === active
-                    ? "ring-2 ring-[#00F5C3] ring-offset-2 ring-offset-[#0c0c0e]"
+                    ? "ring-2 ring-[#00F5C3] ring-offset-1 ring-offset-black"
                     : "opacity-40 hover:opacity-80"
                 }
                 `}
@@ -288,298 +225,256 @@ const MetaContent = ({
 
         )}
 
-      </motion.div>
+      </div>
 
-      {/* BODY */}
+      {/* RIGHT — INFO */}
 
-      <div
-        className="
-        grid
-        gap-10
-        p-8
-        lg:grid-cols-[1fr_300px]
-        lg:p-10
-        "
-      >
+      <div className="flex min-h-0 flex-1 flex-col">
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 24,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: .3,
-            duration: .5,
-          }}
+        <div
+          className="
+          min-h-0
+          flex-1
+          overflow-y-auto
+          p-6
+          lg:p-8
+          "
         >
 
-          <p className="leading-8 text-zinc-400">
-            {item.overview ?? item.description}
-          </p>
+        <span
+          className="
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-[#00F5C3]/30
+          bg-[#00F5C3]/10
+          px-3.5
+          py-1.5
+          text-[11px]
+          font-semibold
+          uppercase
+          tracking-[0.18em]
+          text-[#00F5C3]
+          "
+        >
+          <Sparkles size={12} />
+          Detail Proyek
+        </span>
 
-          {item.features && item.features.length > 0 && (
+        <h3 className="mt-3.5 text-2xl font-bold text-white lg:text-[28px]">
+          {item.title}
+        </h3>
 
-            <div className="mt-9">
+        {metaChips.length > 0 && (
 
-              <h4
+          <div className="mt-4 flex flex-wrap gap-2">
+            {metaChips.map((m) => (
+              <span
+                key={m.value}
                 className="
-                flex
+                inline-flex
                 items-center
-                gap-2
+                gap-1.5
+                rounded-full
+                border
+                border-zinc-800
+                bg-zinc-900/70
+                px-3
+                py-1.5
                 text-xs
-                font-semibold
-                uppercase
-                tracking-[0.2em]
-                text-[#00F5C3]
+                text-zinc-300
                 "
               >
-                <Sparkles size={14} />
-                Fitur Utama
-              </h4>
+                <m.icon size={13} className="text-[#00F5C3]" />
+                {m.value}
+              </span>
+            ))}
+          </div>
 
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {item.features.map((feature, i) => (
-                  <motion.div
-                    key={feature}
-                    initial={{
-                      opacity: 0,
-                      y: 12,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      delay: .4 + i * .06,
-                      duration: .4,
-                    }}
-                    className="
-                    flex
-                    items-start
-                    gap-3
-                    rounded-2xl
-                    border
-                    border-zinc-800
-                    bg-zinc-900/50
-                    p-4
-                    transition
-                    hover:border-[#00F5C3]/30
-                    "
-                  >
-                    <span
-                      className="
-                      mt-0.5
-                      flex
-                      h-6
-                      w-6
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#00F5C3]/15
-                      text-[#00F5C3]
-                      "
-                    >
-                      <Check size={13} strokeWidth={3} />
-                    </span>
-                    <p className="text-sm leading-6 text-zinc-300">
-                      {feature}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
+        )}
 
-            </div>
-
-          )}
-
-        </motion.div>
-
-        <motion.aside
-          initial={{
-            opacity: 0,
-            y: 24,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: .38,
-            duration: .5,
-          }}
+        <p
+          className="
+          mt-5
+          text-sm
+          leading-7
+          text-zinc-400
+          "
         >
+          {item.overview ?? item.description}
+        </p>
 
-          <div
-            className="
-            h-fit
-            rounded-[24px]
-            border
-            border-zinc-800
-            bg-zinc-900/70
-            p-6
-            "
-          >
+        {item.features && item.features.length > 0 && (
+
+          <div className="mt-7">
 
             <h4
               className="
-              text-xs
+              flex
+              items-center
+              gap-2
+              text-[11px]
               font-semibold
               uppercase
-              tracking-[0.2em]
-              text-zinc-500
+              tracking-[0.18em]
+              text-[#00F5C3]
               "
             >
-              Informasi
+              <Sparkles size={13} />
+              Fitur Utama
             </h4>
 
-            <div className="mt-4 space-y-4">
-              {meta.map((m) => (
-                <div key={m.label} className="flex items-center gap-3">
+            <ul className="mt-3.5 space-y-2.5">
+              {item.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
                   <span
                     className="
+                    mt-0.5
                     flex
-                    h-9
-                    w-9
+                    h-5
+                    w-5
+                    shrink-0
                     items-center
                     justify-center
-                    rounded-xl
-                    bg-[#00F5C3]/10
+                    rounded-full
+                    bg-[#00F5C3]/15
                     text-[#00F5C3]
                     "
                   >
-                    <m.icon size={16} />
+                    <Check size={11} strokeWidth={3} />
                   </span>
-                  <div>
-                    <p className="text-xs text-zinc-500">{m.label}</p>
-                    <p className="text-sm font-medium text-zinc-200">
-                      {m.value}
-                    </p>
-                  </div>
-                </div>
+                  <span className="text-sm leading-6 text-zinc-300">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+          </div>
+
+        )}
+
+        {item.tech.length > 0 && (
+
+          <div className="mt-7">
+
+            <h4
+              className="
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-[0.18em]
+              text-zinc-500
+              "
+            >
+              Teknologi
+            </h4>
+
+            <div className="mt-3 flex flex-wrap gap-2">
+              {item.tech.map((t) => (
+                <span
+                  key={t}
+                  className="
+                  rounded-full
+                  border
+                  border-zinc-700
+                  bg-zinc-800/70
+                  px-3
+                  py-1
+                  text-xs
+                  text-[#00F5C3]
+                  "
+                >
+                  {t}
+                </span>
               ))}
             </div>
 
-            {item.tech.length > 0 && (
+          </div>
 
-              <>
-                <h4
-                  className="
-                  mt-7
-                  text-xs
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-zinc-500
-                  "
-                >
-                  Teknologi
-                </h4>
+        )}
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {item.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="
-                      rounded-full
-                      border
-                      border-zinc-700
-                      bg-zinc-800/70
-                      px-3
-                      py-1
-                      text-xs
-                      text-[#00F5C3]
-                      "
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </>
+        </div>
 
-            )}
+        {(item.link || item.github) && (
 
-            {(item.link || item.github) && (
+          <div
+            className="
+            flex
+            shrink-0
+            gap-3
+            border-t
+            border-zinc-800
+            bg-[#0c0c0e]
+            px-6
+            py-4
+            lg:px-8
+            "
+          >
 
-              <div
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-                mt-7
-                space-y-3
-                border-t
-                border-zinc-800
-                pt-6
+                inline-flex
+                flex-1
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                bg-[#00F5C3]
+                px-5
+                py-3
+                text-sm
+                font-semibold
+                text-black
+                transition-all
+                duration-300
+                hover:scale-[1.02]
+                hover:shadow-[0_0_30px_rgba(0,245,195,.35)]
                 "
               >
+                Kunjungi Proyek
+                <ArrowUpRight size={16} />
+              </a>
+            )}
 
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                    flex
-                    w-full
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-full
-                    bg-[#00F5C3]
-                    px-6
-                    py-3
-                    text-sm
-                    font-semibold
-                    text-black
-                    transition-all
-                    duration-300
-                    hover:scale-[1.03]
-                    hover:shadow-[0_0_30px_rgba(0,245,195,.35)]
-                    "
-                  >
-                    Kunjungi Proyek
-                    <ArrowUpRight size={17} />
-                  </a>
-                )}
-
-                {item.github && (
-                  <a
-                    href={item.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                    flex
-                    w-full
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-full
-                    border
-                    border-zinc-700
-                    px-6
-                    py-3
-                    text-sm
-                    font-semibold
-                    text-zinc-200
-                    transition
-                    hover:border-[#00F5C3]
-                    hover:text-[#00F5C3]
-                    "
-                  >
-                    <FaGithub size={16} />
-                    Lihat GitHub
-                  </a>
-                )}
-
-              </div>
-
+            {item.github && (
+              <a
+                href={item.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                inline-flex
+                flex-1
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                border
+                border-zinc-700
+                px-5
+                py-3
+                text-sm
+                font-semibold
+                text-zinc-200
+                transition
+                hover:border-[#00F5C3]
+                hover:text-[#00F5C3]
+                "
+              >
+                <FaGithub size={15} />
+                GitHub
+              </a>
             )}
 
           </div>
 
-        </motion.aside>
+        )}
 
       </div>
 
@@ -650,8 +545,8 @@ const ProjectDetailModal = ({ item, onClose }: Props) => {
               aria-modal="true"
               initial={{
                 opacity: 0,
-                y: 48,
-                scale: .95,
+                y: 40,
+                scale: .96,
               }}
               animate={{
                 opacity: 1,
@@ -660,26 +555,26 @@ const ProjectDetailModal = ({ item, onClose }: Props) => {
               }}
               exit={{
                 opacity: 0,
-                y: 48,
-                scale: .95,
+                y: 40,
+                scale: .96,
               }}
               transition={{
                 type: "spring",
-                stiffness: 280,
-                damping: 28,
+                stiffness: 300,
+                damping: 30,
               }}
               onClick={(e) => e.stopPropagation()}
               className="
               relative
               my-auto
               w-full
-              max-w-5xl
+              max-w-4xl
               overflow-hidden
-              rounded-[30px]
+              rounded-[28px]
               border
               border-zinc-800
               bg-[#0c0c0e]
-              shadow-[0_0_120px_rgba(0,245,195,.12)]
+              shadow-[0_0_100px_rgba(0,245,195,.1)]
               "
             >
 
@@ -692,7 +587,7 @@ const ProjectDetailModal = ({ item, onClose }: Props) => {
                 h-px
                 bg-linear-to-r
                 from-transparent
-                via-[#00F5C3]/70
+                via-[#00F5C3]/60
                 to-transparent
                 "
               />
@@ -703,14 +598,14 @@ const ProjectDetailModal = ({ item, onClose }: Props) => {
                 aria-label="Tutup detail"
                 className="
                 absolute
-                right-5
-                top-5
+                right-4
+                top-4
                 z-30
                 rounded-full
                 border
                 border-zinc-700
                 bg-black/60
-                p-3
+                p-2.5
                 text-zinc-400
                 backdrop-blur-md
                 transition-all
@@ -720,10 +615,10 @@ const ProjectDetailModal = ({ item, onClose }: Props) => {
                 hover:text-[#00F5C3]
                 "
               >
-                <X size={20} />
+                <X size={18} />
               </button>
 
-              <MetaContent item={item} />
+              <ModalBody key={item.id} item={item} />
 
             </motion.div>
 
